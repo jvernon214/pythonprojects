@@ -1,0 +1,2 @@
+Favor 200 codes over other random codes
+Add ability to pass an arguement into the function to define good, bad, or both types of requests---maybe even random excluding 200s and 500s 
