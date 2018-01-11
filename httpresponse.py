@@ -23,13 +23,19 @@ def http_output(responsesExpected, argsCodes):
 				responseCodes.append(newObj)
 			# Return the results
 			return json.dumps(responseCodes)
+		# If specific response arguements are passed into the python function,
+		# we'll loop through these and only return those results
 		elif argsCodes:
 			for _ in range(responsesExpected):
 				# get n amount of random keys from the list
-				for code in argsCodes:
-					value = httpDictionary[code]
-					responseCodes[code] = value
-			return responseCodes
+				randomKey = random.choice(argsCodes)
+				# get the value of the random key
+				value = httpDictionary[randomKey]
+				# responseCodes[randomKey] = value
+				newObj = {randomKey:value}
+				responseCodes.append(newObj)
+			# Return the results
+			return json.dumps(responseCodes)
 	except Exception as e:
 		raise e
-print(http_output(500,['200']))
+print(http_output(500,['200','500','300']))
